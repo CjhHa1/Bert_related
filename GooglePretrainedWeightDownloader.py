@@ -107,7 +107,7 @@ class GooglePretrainedWeightDownloader:
       h  = hashlib.sha256()
       b  = bytearray(128*1024)
       mv = memoryview(b)
-      with open(filename, 'rb', buffering=0) as f:
+      with open(filename, 'rb', buffering=0,encoding="utf-8") as f:
         for n in iter(lambda : f.readinto(mv), 0):
           h.update(mv[:n])
 
@@ -122,7 +122,7 @@ class GooglePretrainedWeightDownloader:
 
           print('Downloading', url)
           response = urllib.request.urlopen(url)
-          with open(file, 'wb') as handle:
+          with open(file, 'wb',encoding="utf-8") as handle:
             handle.write(response.read())
 
           print('Unzipping', file)

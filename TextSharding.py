@@ -37,7 +37,7 @@ class Sharding:
         global_article_count = 0
         for input_file in self.input_files:
             print('input file:', input_file)
-            with open(input_file, mode='r', newline='\n') as f:
+            with open(input_file, mode='r', newline='\n',encoding="utf-8") as f:
                 for i, line in enumerate(f):
                     if line.strip():
                         self.articles[global_article_count] = line.rstrip()
@@ -297,7 +297,7 @@ class Sharding:
         shard_split = os.path.split(shard_name)
         shard_name = shard_split[0] + '/' + split + '/' + shard_split[1]
 
-        with open(shard_name, mode='w', newline='\n') as f:
+        with open(shard_name, mode='w', newline='\n',encoding="utf-8") as f:
             for article_id in shard:
                 for line in self.sentences[article_id]:
                     f.write(line + '\n')
