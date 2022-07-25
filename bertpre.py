@@ -109,8 +109,7 @@ def main(args):
                 'tfrecord']+'\'' + '/' + args.dataset + '/' + split + '/' + filename_prefix + '_' + str(
                 shard_id) + '.' + output_format
 
-            bert_preprocessing_command += ' --vocab_file=' + '\''+directory_structure[
-                'download'] +'\''+ '/'+ args.vocab_file
+            bert_preprocessing_command += ' --vocab_file=' + str(args.vocab_file)
 
             bert_preprocessing_command += ' --do_lower_case' if args.do_lower_case else ''
 

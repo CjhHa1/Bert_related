@@ -10,7 +10,7 @@ class WikicorpusTextFormatting:
 
     # This puts one article per line
     def merge(self):
-        with open(self.output_filename, mode='w', newline='\n') as ofile:
+        with open(self.output_filename, mode='w', newline='\n',encoding="utf-8") as ofile:
             for dirname in glob.glob(self.wiki_path + '/*/', recursive=False):
                 for filename in glob.glob(dirname + 'wiki_*', recursive=self.recursive):
                     print(filename)
@@ -18,7 +18,7 @@ class WikicorpusTextFormatting:
                     article_open = False
 
                     # ofile:output file, oline:article lines
-                    with open(filename, mode='r', newline='\n') as file:
+                    with open(filename, mode='r', newline='\n',encoding="utf-8") as file:
                         for line in file:
                             if '<doc id=' in line:
                                 article_open = True

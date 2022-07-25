@@ -10,7 +10,7 @@ class BookscorpusTextFormatting:
 
     # This puts one book per line
     def merge(self):
-        with open(self.output_filename, mode='w', newline='\n') as ofile:
+        with open(self.output_filename, mode='w', newline='\n',encoding="utf-8") as ofile:
             for filename in glob.glob(self.books_path + '/' + '*.txt', recursive=True):
                 print(filename)
                 with open(filename, mode='r', encoding='utf-8-sig', newline='\n') as file:
